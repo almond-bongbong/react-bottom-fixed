@@ -1,0 +1,63 @@
+{
+  "name": "module-template",
+  "version": "1.0.2",
+  "description": "A feature-rich boilerplate for creating React and TypeScript node modules, complete with Rollup bundling, Jest testing environment, and ESLint & Prettier integration.",
+  "author": "almond-bongbong",
+  "license": "MIT",
+  "types": "./lib/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "type": "module",
+  "files": [
+    "lib/**/*"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "del-cli ./lib",
+    "lint": "eslint src",
+    "copy:css": "cp src/index.css lib/esm/ && cp src/index.css lib/cjs/",
+    "build:esm": "tsc -p ./tsconfig.json",
+    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "build": "npm run clean && npm run lint && npm run build:esm && npm run build:cjs && npm run copy:css",
+    "prepack": "npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.15.26",
+    "@types/react": "^18.0.28",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "del-cli": "^6.0.0",
+    "eslint": "9.27.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "sass": "^1.89.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.8.3"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "module"
+  ]
+}
