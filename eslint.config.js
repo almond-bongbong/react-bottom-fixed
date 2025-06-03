@@ -13,13 +13,10 @@ export default [
       sourceType: 'module',
       parser: tseslintParser,
       parserOptions: {
+        project: './tsconfig.json',
         ecmaFeatures: {
           jsx: true,
         },
-      },
-      globals: {
-        Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly',
       },
     },
     plugins: {
@@ -31,6 +28,7 @@ export default [
       ...tseslint.configs.recommended.rules,
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
+      'no-undef': 'off',
     },
     settings: {
       react: {
