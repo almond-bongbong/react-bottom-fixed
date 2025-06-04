@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Component } from '../src';
+import { BottomFixed } from '../src';
 
 describe('test', () => {
   it('correct', () => {
@@ -9,8 +9,8 @@ describe('test', () => {
   });
 
   it('app', () => {
-    render(<Component />);
-    screen.getByText('hello3');
+    render(<BottomFixed>hello</BottomFixed>);
+    screen.getByText('hello');
   });
 
   it('wrong', () => {

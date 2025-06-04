@@ -1,0 +1,62 @@
+.container {
+  padding: 26px 26px 100px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.description {
+  margin-top: 10px;
+  color: #888;
+  line-height: 1.4;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:active {
+    background-color: #0056b3;
+  }
+}
+
+.link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.long_content {
+  margin-top: 20px;
+}
+
+.cta {
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}

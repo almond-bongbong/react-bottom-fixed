@@ -9,8 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "module-template": "file:..",
-    "prism-react-renderer": "^2.0.4",
+    "react-bottom-fixed": "file:..",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

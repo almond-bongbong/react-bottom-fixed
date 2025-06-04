@@ -63,12 +63,12 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import './index.css';
 
-interface Props {
+export interface BottomFixedProps {
   children: ReactNode;
   className?: string;
 }
 
-function BottomFixedArea({ children, className }: Props) {
+export function BottomFixed({ children, className }: BottomFixedProps) {
   // DOM reference to the CTA container that we ultimately translate vertically
   const ctaRef = useRef<HTMLDivElement>(null);
 
@@ -323,5 +323,3 @@ function BottomFixedArea({ children, className }: Props) {
     </div>
   );
 }
-
-export default BottomFixedArea;
