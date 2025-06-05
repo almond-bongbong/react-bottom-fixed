@@ -1,155 +1,112 @@
-# 🛠️ Module Template
+# 🔧 react-bottom-fixed
 
-A boilerplate template for creating Node modules with React and TypeScript.
+> A smart React component that keeps your bottom buttons visible even when the iOS keyboard appears
 
-## 🌟 Features
+## Why does this exist? 🤔
 
-- React and TypeScript support
-- Testing environment with Jest and React Testing Library
-- Code formatting and linting with ESLint and Prettier
-- TypeScript compiler configuration
-- Automatic module type definitions
-- Modern npm package format (2.0.0)
-- ES Modules (ESM) and CommonJS support
+If you've ever built mobile web apps, you've probably experienced this frustration:
 
-## 📦 Project Structure
+- **Buttons disappear behind the keyboard on iPhone** 😭
+- CSS `position: fixed` doesn't work properly on iOS Safari/Chrome
+- Important action buttons get hidden every time users start typing
 
+This library solves exactly that problem! While Android fixed this issue back in 2019, iOS still hasn't caught up.
+
+## How does it work? ✨
+
+It **automatically adjusts** your button position in real-time whenever the keyboard appears:
+
+- Uses the `visualViewport` API to calculate exact keyboard height
+- Smoothly moves buttons up using `transform` (no reflow!)
+- Fades buttons slightly during scrolling to avoid blocking content
+
+## Installation 📦
+
+```bash
+npm install react-bottom-fixed
 ```
-.
-├── src/           # Source code
-│   ├── cjs/      # CommonJS format
-│   ├── esm/      # ES Modules format
-│   └── types/    # Type definition files
-├── tests/         # Test files
-├── example/       # Example code
-└── types/         # Type definition files
-```
 
-## 🔧 Dependencies
+## Usage 🚀
 
-### Core Dependencies
+Super simple! Just wrap your bottom button with `BottomFixed` and you're done:
 
-- `react` (>=16.8.0)
-- `react-dom` (>=16.8.0)
+```tsx
+import { BottomFixed } from 'react-bottom-fixed';
 
-### Development Dependencies
+function MyApp() {
+  return (
+    <div>
+      {/* Regular page content */}
+      <h1>Hello World!</h1>
+      <input type="text" placeholder="Try typing here" />
 
-- `typescript`: Static type support
-- `jest` & `@testing-library/react`: Testing environment
-- `eslint` & `prettier`: Code quality management
-- `sass`: CSS preprocessor
-
-## 📦 Packaging
-
-### Modern Package Format
-
-This template follows the modern npm package format (2.0.0) with the following features:
-
-- **Dual Module Support**: Supports both ES Modules and CommonJS formats
-- **TypeScript Integration**: Full TypeScript support with declaration files
-- **Exports Field**: Uses the new `exports` field for better module resolution
-- **Package Entry Points**: Clear entry points for both ESM and CommonJS formats
-
-### Module Configuration
-
-The module is configured with the following settings in `package.json`:
-
-```json
-{
-  "type": "module",
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
-  "types": "./lib/types/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./lib/types/index.d.ts",
-      "import": "./lib/esm/index.js",
-      "require": "./lib/cjs/index.js"
-    }
-  }
+      {/* Button that stays visible above keyboard */}
+      <BottomFixed>
+        <button onClick={() => alert('완료!')}>완료하기</button>
+      </BottomFixed>
+    </div>
+  );
 }
 ```
 
-### Build Process
+### Custom styling? ✨
 
-The build process generates both ESM and CommonJS formats along with type definitions:
+```tsx
+<BottomFixed className="my-custom-style">
+  <button className="fancy-button">멋진 버튼</button>
+</BottomFixed>
+```
 
-1. **ESM Build**:
+## API Reference 📚
 
-   - Generates `.js` files for ES modules
-   - Uses `tsconfig.json`
-   - Output directory: `lib/esm/`
+### `BottomFixed` Props
 
-2. **CommonJS Build**:
+| Property    | Type        | Required | Description                     |
+| ----------- | ----------- | -------- | ------------------------------- |
+| `children`  | `ReactNode` | ✅       | Component to be fixed at bottom |
+| `className` | `string`    | ❌       | Additional CSS class name       |
 
-   - Generates `.js` files for CommonJS modules
-   - Uses `tsconfig.cjs.json`
-   - Output directory: `lib/cjs/`
+## Browser Support 🌐
 
-3. **Type Definitions**:
-   - Generated alongside both builds
-   - Located in `lib/types/`
+- ✅ **iOS Safari** (main target!)
+- ✅ **iOS Chrome**
+- ✅ **Android browsers** (works great already, but compatibility guaranteed)
+- ✅ **Desktop** (works as regular container)
 
-### Distribution Files
+On non-iOS environments, it automatically behaves like a normal container with zero performance overhead.
 
-When publishing to npm, only the following files are included:
+## Try the Demo 👀
 
-- `lib/` directory containing:
-  - ESM format (`.js` files in `lib/esm/`)
-  - CommonJS format (`.js` files in `lib/cjs/`)
-  - TypeScript declaration files (`.d.ts` in `lib/types/`)
-  - Source maps (if enabled)
-
-### Publishing
-
-1. Update the version in `package.json`
-2. Run `npm run build` to compile the latest changes
-3. Run `npm publish` to publish to npm registry
-
-## 🚀 Usage
-
-### Installation
+Clone and run the example:
 
 ```bash
+git clone https://github.com/almond-bongbong/react-bottom-fixed.git
+cd react-bottom-fixed/example
 npm install
+npm run dev
 ```
 
-### Development
+Test it on iPhone or Chrome DevTools mobile mode – you'll see the difference immediately!
 
-```bash
-# Run linter
-npm run lint
+## Important Notes ⚠️
 
-# Build
-npm run build        # Build both ESM and CommonJS
-npm run build:esm    # Build only ESM
-npm run build:cjs    # Build only CommonJS
+- **iOS-only optimization**: No extra logic runs on non-iOS devices
+- **Requires `visualViewport`**: Gracefully falls back to regular container on older browsers
+- **Performance-first**: Built with GPU acceleration for smooth animations
 
-# Run tests
-npm run test
-npm run test:watch
-```
+## Contributing 🤝
 
-### Module Usage
+Found a bug or have ideas for improvement? We'd love to hear from you!
 
-The library can be used in both ESM and CommonJS environments:
+- 🐛 [Report bugs](https://github.com/almond-bongbong/react-bottom-fixed/issues)
+- 💡 [Request features](https://github.com/almond-bongbong/react-bottom-fixed/issues)
 
-```javascript
-// ESM
-import { something } from 'module-template';
+## License 📄
 
-// CommonJS
-const { something } = require('module-template');
-```
+MIT License - feel free to use it however you like!
 
-### Build
+---
 
-Built files are generated in the `lib` directory:
-
-- `lib/esm/index.js`: ESM format JavaScript file
-- `lib/cjs/index.js`: CommonJS format JavaScript file
-- `lib/types/index.d.ts`: TypeScript type definitions
-
-## 📝 License
-
-MIT
+<div align="center">
+  <sub>Made with ❤️ for better mobile web experience</sub>
+</div>
