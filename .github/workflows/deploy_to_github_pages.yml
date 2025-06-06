@@ -10,9 +10,7 @@ on:
 
 # Set permissions for GitHub Pages deployment
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 # Prevent concurrent deployments
 concurrency:
