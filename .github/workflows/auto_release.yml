@@ -21,12 +21,21 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/github-script@v7
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
-          tag_name: v${{ env.version }}
-          release_name: Release v${{ env.version }}
-          body: Auto-generated release
-          draft: false
-          prerelease: false
+          script: |
+            const { data: release } = await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: `v${{ env.version }}`,
+              name: `Release v${{ env.version }}`,
+              body: 'Auto-generated release',
+              draft: false,
+              prerelease: false
+            });
+
+            core.setOutput('id', release.id);
+            core.setOutput('html_url', release.html_url);
+            core.setOutput('upload_url', release.upload_url);
