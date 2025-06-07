@@ -4,10 +4,6 @@ on:
   release:
     types: [created, published]
 
-  push:
-    tags:
-      - 'v*'
-
   repository_dispatch:
     types: [publish-package]
 
