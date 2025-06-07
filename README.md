@@ -42,7 +42,7 @@ function MyApp() {
 
       {/* Button that stays visible above keyboard */}
       <BottomFixed>
-        <button onClick={() => alert('완료!')}>완료하기</button>
+        <button onClick={() => alert('Done!')}>Complete</button>
       </BottomFixed>
     </div>
   );
@@ -53,7 +53,7 @@ function MyApp() {
 
 ```tsx
 <BottomFixed className="my-custom-style">
-  <button className="fancy-button">멋진 버튼</button>
+  <button className="fancy-button">Fancy Button</button>
 </BottomFixed>
 ```
 
@@ -77,7 +77,9 @@ On non-iOS environments, it automatically behaves like a normal container with z
 
 ## Try the Demo 👀
 
-Clone and run the example:
+**🌐 [Live Demo](https://almond-bongbong.github.io/react-bottom-fixed/)** - Try it right now!
+
+Or clone and run locally:
 
 ```bash
 git clone https://github.com/almond-bongbong/react-bottom-fixed.git
