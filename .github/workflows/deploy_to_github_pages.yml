@@ -39,7 +39,7 @@ jobs:
         run: cd example && npm install && npm run build
 
       - name: Copy index.html to 404.html
-        run: cp dist/index.html dist/404.html
+        run: cp example/dist/index.html example/dist/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
