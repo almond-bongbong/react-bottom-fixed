@@ -1,62 +1,100 @@
 .container {
-  padding: 26px 26px 100px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px 24px 120px;
+  background-color: #ffffff;
+  min-height: 100vh;
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
 }
 
 .description {
-  margin-top: 10px;
-  color: #888;
-  line-height: 1.4;
+  margin-top: 16px;
+  color: #666;
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 .input {
   display: block;
   width: 100%;
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin-top: 24px;
+  padding: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: #f8f9fa;
 
   &:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    background-color: #ffffff;
   }
 }
 
 .button {
   display: block;
   width: 100%;
-  padding: 15px 20px;
-  border-radius: 5px;
-  background-color: #007bff;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background-color: #4f46e5;
   color: #fff;
   border: none;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.1);
+
+  &:hover {
+    background-color: #4338ca;
+    transform: translateY(-1px);
+  }
 
   &:active {
-    background-color: #0056b3;
+    background-color: #3730a3;
+    transform: translateY(0);
   }
 }
 
 .link {
   display: inline-block;
-  margin-top: 20px;
-  color: #007bff;
-  text-decoration: underline;
+  margin-top: 24px;
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(79, 70, 229, 0.1);
+
+  &:hover {
+    color: #3730a3;
+    background-color: rgba(79, 70, 229, 0.15);
+  }
 }
 
 .long_content {
-  margin-top: 20px;
+  margin-top: 32px;
+  padding: 24px;
+  background-color: #f8f9fa;
+  border-radius: 16px;
+  line-height: 1.8;
+  color: #4a5568;
 }
 
 .cta {
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  padding: 0;
+  background: transparent;
 }

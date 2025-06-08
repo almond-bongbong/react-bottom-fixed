@@ -1,6 +1,6 @@
 {
   "name": "react-bottom-fixed",
-  "version": "0.0.3-rc.8",
+  "version": "0.0.3-rc.9",
   "description": "A React component for iOS that keeps your bottom-positioned elements fixed and safely visible, automatically adjusting their positions when viewport changes (e.g., virtual keyboard appearance).",
   "author": "almond-bongbong",
   "license": "MIT",
@@ -57,7 +57,14 @@
   },
   "keywords": [
     "react",
-    "typescript",
-    "module"
+    "react-component",
+    "ios",
+    "keyboard",
+    "fixed-position",
+    "viewport",
+    "mobile-ui",
+    "react-hooks",
+    "bottom-navigation",
+    "keyboard-aware"
   ]
 }

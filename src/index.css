@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 0;
   will-change: transform;
-  transition: opacity 0.1s ease-out;
+  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
 }
 
 .rbf-bottom-fixed-area.rbf-hide {

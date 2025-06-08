@@ -1,6 +1,18 @@
 # 🔧 react-bottom-fixed
 
+[![NPM](https://img.shields.io/npm/v/react-bottom-fixed.svg)](https://www.npmjs.com/package/react-bottom-fixed)
+![License](https://img.shields.io/npm/l/react-confetti-boom)
+![Size](https://img.shields.io/bundlephobia/min/react-confetti-boom)
+![NPM Downloads](https://img.shields.io/npm/dw/react-bottom-fixed.svg)
+[![Deploy to GitHub Pages](https://github.com/almond-bongbong/react-bottom-fixed/actions/workflows/deploy_to_github_pages.yml/badge.svg)](https://github.com/almond-bongbong/react-bottom-fixed/actions/workflows/deploy_to_github_pages.yml)
+
 > A smart React component that keeps your bottom buttons visible even when the iOS keyboard appears
+
+<p align="center">
+    <a target="_blank" href="https://almond-bongbong.github.io/react-bottom-fixed/">
+        <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/fixed_preview.gif" />
+    </a>
+</p>
 
 ## Why does this exist? 🤔
 

@@ -193,7 +193,9 @@ export function BottomFixed({ children, className }: BottomFixedProps) {
     let keyboardVisibleDelayTimer: number | null = null;
 
     // ────────────── Focus Handlers ──────────────
-    // focusin = keyboard likely opening
+    /**
+     * Runs on any focusin event.
+     */
     const focusinHandler = () => {
       hasScroll = document.documentElement.scrollHeight > window.innerHeight;
       isKeyboardVisible = true;
@@ -209,8 +211,9 @@ export function BottomFixed({ children, className }: BottomFixedProps) {
       viewportChangeHandler();
     };
 
-    // focusout = keyboard closing; restore CTA after one RAF to avoid racing
-    // with the viewport resize event.
+    /**
+     * Runs on any focusout event.
+     */
     const focusoutHandler = () => {
       // When the keyboard hides instantly (e.g. tapping non‑input areas) events can mix; defer the reset by one frame
       window.requestAnimationFrame(() => placeCTA(0));
@@ -253,23 +256,8 @@ export function BottomFixed({ children, className }: BottomFixedProps) {
     let timer: number | null = null;
     let isTouching = false;
 
-    const handleTouchStart = (e: TouchEvent) => {
+    const handleTouchStart = () => {
       isTouching = true;
-
-      if (!isKeyboardVisibleWithDelay) return;
-      if (timer) window.clearTimeout(timer);
-
-      // Ignore taps *inside* the CTA → don't hide when user wants to click it
-      // Ignore taps on input elements → don't hide when user wants to type
-      if (
-        ctaRef.current?.contains(e.target as Node) ||
-        e.target instanceof HTMLInputElement
-      ) {
-        return;
-      }
-
-      // Start fade-out immediately on first movement frame
-      setIsHide(true);
     };
 
     const handleTouchEnd = () => {

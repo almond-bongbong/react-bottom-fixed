@@ -12,10 +12,11 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Fixed CTA Button</h1>
+      <h1 className={styles.title}>Smart Mobile CTA Button</h1>
       <p className={styles.description}>
-        This is a simple example of a fixed CTA button that is positioned above
-        the keyboard on mobile devices.
+        Transform your mobile user experience with our open-source CTA button
+        library. Perfect for e-commerce, lead generation, and conversion
+        optimization.
       </p>
 
       <button
@@ -26,72 +27,44 @@ function App() {
           setIsLongContent(!isLongContent);
         }}
       >
-        Toggle long content
+        View Features
       </button>
 
-      <input type="text" className={styles.input} />
+      <input
+        type="text"
+        className={styles.input}
+        placeholder="Search documentation..."
+      />
 
       {isLongContent && (
         <div className={styles.long_content}>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
+            Elevate your mobile web applications with our open-source CTA button
+            library. Designed specifically for React developers, this library
+            ensures your call-to-action buttons are always visible and
+            accessible, even when the mobile keyboard is active.
             <br />
             <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
+            Key Features: • Automatic keyboard detection and positioning •
+            Smooth animations and transitions • Customizable styling and themes
+            • Lightweight and performance-optimized • TypeScript support •
+            Cross-browser compatibility
             <br />
             <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
+            Perfect for: • E-commerce checkout flows • Lead generation forms •
+            Subscription sign-ups • Mobile-first applications • Progressive Web
+            Apps
             <br />
             <br />
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
+            Join our growing community of developers who have enhanced their
+            mobile user experience with our library. Our comprehensive
+            documentation and active community support make implementation a
+            breeze.
             <br />
             <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos.
+            Star us on GitHub and contribute to make this library even better!
+            We welcome bug reports, feature requests, and pull requests from the
+            community.
           </p>
         </div>
       )}
@@ -100,9 +73,9 @@ function App() {
         <button
           type="button"
           className={styles.button}
-          onClick={() => alert('submit')}
+          onClick={() => alert('View on GitHub')}
         >
-          Submit
+          View on GitHub
         </button>
       </BottomFixed>
     </div>
