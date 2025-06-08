@@ -119,6 +119,10 @@ Found a bug or have ideas for improvement? We'd love to hear from you!
 
 MIT License - feel free to use it however you like!
 
+## Changelog 📝
+
+See the [CHANGELOG.md](CHANGELOG.md) file for details.
+
 ---
 
 <div align="center">
