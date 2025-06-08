@@ -10,7 +10,7 @@
 
 <p align="center">
     <a target="_blank" href="https://almond-bongbong.github.io/react-bottom-fixed/">
-        <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/fixed_preview.gif" />
+        <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/fixed_preview.gif" width="300px" />
     </a>
 </p>
 
