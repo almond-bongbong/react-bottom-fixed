@@ -1,7 +1,7 @@
 import { BottomFixed } from 'react-bottom-fixed';
 import './styles/reset.css';
 import styles from './styles/index.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const LONG_CONTENT_KEY = 'cta-long-content';
 
@@ -34,6 +34,11 @@ function App() {
         type="text"
         className={styles.input}
         placeholder="Search documentation..."
+        onFocus={(e) => {
+          setTimeout(() => {
+            e.target.blur();
+          }, 1500);
+        }}
       />
 
       {isLongContent && (
@@ -69,7 +74,7 @@ function App() {
         </div>
       )}
 
-      <BottomFixed className={styles.cta}>
+      <div className={styles.cta}>
         <button
           type="button"
           className={styles.button}
@@ -77,7 +82,7 @@ function App() {
         >
           View on GitHub
         </button>
-      </BottomFixed>
+      </div>
     </div>
   );
 }
