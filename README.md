@@ -10,7 +10,14 @@
 
 <p align="center">
     <a target="_blank" href="https://almond-bongbong.github.io/react-bottom-fixed/">
-        <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/fixed_preview.gif" width="300px" />
+        <div style="display: inline-block; text-align: center; margin-right: 20px;">
+            <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/before.gif" width="300px" />
+            <div style="margin-top: 8px; font-weight: bold;">Before</div>
+        </div>
+        <div style="display: inline-block; text-align: center;">
+            <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/after.gif" width="300px" />
+            <div style="margin-top: 8px; font-weight: bold;">After</div>
+        </div>
     </a>
 </p>
 
