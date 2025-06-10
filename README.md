@@ -9,14 +9,41 @@
 > A smart React component that keeps your bottom buttons visible even when the iOS keyboard appears
 
 <p align="center">
-  <p align="center" style="display: inline-block; text-align: center; margin-right: 20px;">
-      <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/before.gif" width="300px" />
-      <div style="margin-top: 8px; font-weight: bold;">Before</div>
-  </p>
-  <p align="center" style="display: inline-block; text-align: center; margin-right: 20px;">
-      <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/after.gif" width="300px" />
-      <div style="margin-top: 8px; font-weight: bold;">After</div>
-  </p>
+  <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/before.gif" width="300px" />
+  <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/after.gif" width="300px" />
+</p>
+
+<p align="center" style="font-weight: bold;">
+  Before
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  After
 </p>
 
 ## Why does this exist? 🤔
