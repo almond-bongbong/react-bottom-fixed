@@ -8,11 +8,6 @@
 
 > A smart React component that keeps your bottom buttons visible even when the iOS keyboard appears
 
-<p align="center">
-  <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/before.gif" width="300px" />
-  <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/after.gif" width="300px" />
-</p>
-
 <p align="center" style="font-weight: bold;">
   Before
   &nbsp;
@@ -44,6 +39,10 @@
   &nbsp;
   &nbsp;
   After
+  <p align="center">
+    <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/before.gif" width="300px" />
+    <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/after.gif" width="300px" />
+  </p>
 </p>
 
 ## Why does this exist? 🤔
