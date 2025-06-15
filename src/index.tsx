@@ -63,12 +63,25 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import './index.css';
 
+export const ScrollBehavior = {
+  FADE_OUT: 'fade-out',
+  CLOSE_KEYBOARD: 'close-keyboard',
+} as const;
+
+export type ScrollBehaviorType =
+  (typeof ScrollBehavior)[keyof typeof ScrollBehavior];
+
 export interface BottomFixedProps {
   children: ReactNode;
   className?: string;
+  scrollBehavior?: ScrollBehaviorType;
 }
 
-export function BottomFixed({ children, className }: BottomFixedProps) {
+export function BottomFixed({
+  children,
+  className,
+  scrollBehavior = ScrollBehavior.FADE_OUT,
+}: BottomFixedProps) {
   // DOM reference to the CTA container that we ultimately translate vertically
   const ctaRef = useRef<HTMLDivElement>(null);
 
@@ -189,7 +202,7 @@ export function BottomFixed({ children, className }: BottomFixedProps) {
     viewportChangeHandler();
 
     // Delay timer — makes sure keyboard animation fully settles before we treat
-    // it as “visible with delay”.
+    // it as "visible with delay".
     let keyboardVisibleDelayTimer: number | null = null;
 
     // ────────────── Focus Handlers ──────────────
@@ -274,6 +287,14 @@ export function BottomFixed({ children, className }: BottomFixedProps) {
       if (!isKeyboardVisibleWithDelay) return;
       if (timer) window.clearTimeout(timer);
 
+      if (scrollBehavior === ScrollBehavior.CLOSE_KEYBOARD) {
+        // Close keyboard by removing focus from the active element
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+        return;
+      }
+
       // Continuous scroll → keep CTA hidden until scrolling pauses
       setIsHide(true);
 
@@ -298,7 +319,7 @@ export function BottomFixed({ children, className }: BottomFixedProps) {
       window.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [scrollBehavior]);
 
   return (
     <div
