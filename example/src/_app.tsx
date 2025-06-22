@@ -69,7 +69,7 @@ function App() {
         </div>
       )}
 
-      <BottomFixed className={styles.cta}>
+      <BottomFixed className={styles.cta} scrollBehavior="close-keyboard">
         <button
           type="button"
           className={styles.button}

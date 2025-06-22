@@ -268,9 +268,13 @@ export function BottomFixed({
      */
     let timer: number | null = null;
     let isTouching = false;
+    let lastTouchY = 0;
+    let touchStartY = 0;
 
-    const handleTouchStart = () => {
+    const handleTouchStart = (event: TouchEvent) => {
       isTouching = true;
+      touchStartY = event.touches[0].clientY;
+      lastTouchY = touchStartY;
     };
 
     const handleTouchEnd = () => {
@@ -283,11 +287,19 @@ export function BottomFixed({
       timer = window.setTimeout(() => setIsHide(false), 100);
     };
 
-    const handleScroll = () => {
+    /**
+     * Common logic for hiding CTA during scroll or touch movement
+     * Solves the scroll event delay issue caused by the address bar in iOS Chrome
+     * by using touchmove events together with scroll events.
+     */
+    const handleScrollOrTouchMove = () => {
       if (!isKeyboardVisibleWithDelay) return;
       if (timer) window.clearTimeout(timer);
 
-      if (scrollBehavior === ScrollBehavior.CLOSE_KEYBOARD) {
+      if (
+        scrollBehavior === ScrollBehavior.CLOSE_KEYBOARD &&
+        isKeyboardVisible
+      ) {
         // Close keyboard by removing focus from the active element
         if (document.activeElement instanceof HTMLElement) {
           document.activeElement.blur();
@@ -295,7 +307,7 @@ export function BottomFixed({
         return;
       }
 
-      // Continuous scroll → keep CTA hidden until scrolling pauses
+      // Continuous scroll/touch move → keep CTA hidden until movement pauses
       setIsHide(true);
 
       // Ignore scroll events while touching the screen
@@ -304,9 +316,35 @@ export function BottomFixed({
       timer = window.setTimeout(() => setIsHide(false), 200);
     };
 
+    const handleScroll = () => {
+      handleScrollOrTouchMove();
+    };
+
+    /**
+     * Touchmove event handler to solve scroll event delay issues caused by the address bar
+     * in iOS Chrome. Provides more responsive UX by firing more immediately than scroll events.
+     * Only triggers for vertical scrolling to avoid hiding CTA on horizontal swipes.
+     */
+    const handleTouchMove = (event: TouchEvent) => {
+      if (!isTouching || !isKeyboardVisibleWithDelay) return;
+
+      const currentTouchY = event.touches[0].clientY;
+      const deltaY = Math.abs(currentTouchY - lastTouchY);
+      const totalDeltaY = Math.abs(currentTouchY - touchStartY);
+
+      // Only hide CTA if there's significant vertical movement (more than 5px)
+      // This prevents hiding CTA on horizontal swipes or small finger movements
+      if (deltaY > 5 || totalDeltaY > 10) {
+        handleScrollOrTouchMove();
+      }
+
+      lastTouchY = currentTouchY;
+    };
+
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
     window.addEventListener('touchend', handleTouchEnd, { passive: true });
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     // ────────────── House-keeping ──────────────
     // Remove *all* listeners when component unmounts to prevent leaks.
@@ -318,6 +356,7 @@ export function BottomFixed({
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleTouchMove);
     };
   }, [scrollBehavior]);
 
