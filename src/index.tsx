@@ -296,12 +296,12 @@ export function BottomFixed({
       if (!isKeyboardVisibleWithDelay) return;
       if (timer) window.clearTimeout(timer);
 
-      if (
-        scrollBehavior === ScrollBehavior.CLOSE_KEYBOARD &&
-        isKeyboardVisible
-      ) {
+      if (scrollBehavior === ScrollBehavior.CLOSE_KEYBOARD) {
         // Close keyboard by removing focus from the active element
-        if (document.activeElement instanceof HTMLElement) {
+        if (
+          isKeyboardVisible &&
+          document.activeElement instanceof HTMLElement
+        ) {
           document.activeElement.blur();
         }
         return;
