@@ -37,7 +37,6 @@
   &nbsp;
   &nbsp;
   &nbsp;
-  &nbsp;
   After
   <p align="center">
     <img src="https://github.com/almond-bongbong/react-bottom-fixed/raw/main/example/before.gif" width="300px" />
@@ -104,10 +103,16 @@ function MyApp() {
 
 ### `BottomFixed` Props
 
-| Property    | Type        | Required | Description                     |
-| ----------- | ----------- | -------- | ------------------------------- |
-| `children`  | `ReactNode` | ✅       | Component to be fixed at bottom |
-| `className` | `string`    | ❌       | Additional CSS class name       |
+| Property         | Type                             | Required | Description                                               |
+| ---------------- | -------------------------------- | -------- | --------------------------------------------------------- |
+| `children`       | `ReactNode`                      | ✅       | Component to be fixed at bottom                           |
+| `className`      | `string`                         | ❌       | Additional CSS class name                                 |
+| `scrollBehavior` | `'fade-out' \| 'close-keyboard'` | ❌       | Controls behavior when user scrolls during keyboard input |
+
+### `scrollBehavior` Options
+
+- **`'fade-out'`** (default): Button fades out when user scrolls to avoid blocking content
+- **`'close-keyboard'`**: Automatically closes the keyboard when user starts scrolling
 
 ## Browser Support 🌐
 
